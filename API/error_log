@@ -1,0 +1,26 @@
+[11-Nov-2022 11:21:41 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Call to undefined method User::checkUser() in /home/buydriv1/chippi.ga/Android/API/api.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/buydriv1/chippi.ga/Android/API/api.php on line 17
+[11-Nov-2022 11:22:21 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Call to undefined method User::checkUser() in /home/buydriv1/chippi.ga/Android/API/api.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/buydriv1/chippi.ga/Android/API/api.php on line 17
+[11-Nov-2022 11:22:37 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Call to undefined method User::checkUser() in /home/buydriv1/chippi.ga/Android/API/api.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/buydriv1/chippi.ga/Android/API/api.php on line 17
+[11-Nov-2022 11:25:49 Asia/Ho_Chi_Minh] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/buydriv1/chippi.ga/Android/API/api.php on line 17
+[11-Nov-2022 11:25:51 Asia/Ho_Chi_Minh] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/buydriv1/chippi.ga/Android/API/api.php on line 17
+[11-Nov-2022 11:27:49 Asia/Ho_Chi_Minh] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/buydriv1/chippi.ga/Android/API/api.php on line 17
+[11-Nov-2022 11:27:51 Asia/Ho_Chi_Minh] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/buydriv1/chippi.ga/Android/API/api.php on line 17
+[11-Nov-2022 11:27:52 Asia/Ho_Chi_Minh] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/buydriv1/chippi.ga/Android/API/api.php on line 17
+[11-Nov-2022 11:27:56 Asia/Ho_Chi_Minh] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/buydriv1/chippi.ga/Android/API/api.php on line 17
+[11-Nov-2022 11:28:47 Asia/Ho_Chi_Minh] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/buydriv1/chippi.ga/Android/API/api.php on line 17
+[11-Nov-2022 19:57:23 Asia/Ho_Chi_Minh] PHP Warning:  Use of undefined constant email - assumed 'email' (this will throw an Error in a future version of PHP) in /home/buydriv1/chippi.ga/Android/models/user.php on line 18
+[11-Nov-2022 19:57:43 Asia/Ho_Chi_Minh] PHP Warning:  Use of undefined constant email - assumed 'email' (this will throw an Error in a future version of PHP) in /home/buydriv1/chippi.ga/Android/models/user.php on line 18
+[11-Nov-2022 19:57:47 Asia/Ho_Chi_Minh] PHP Warning:  Use of undefined constant email - assumed 'email' (this will throw an Error in a future version of PHP) in /home/buydriv1/chippi.ga/Android/models/user.php on line 18
+[11-Nov-2022 19:57:48 Asia/Ho_Chi_Minh] PHP Warning:  Use of undefined constant email - assumed 'email' (this will throw an Error in a future version of PHP) in /home/buydriv1/chippi.ga/Android/models/user.php on line 18
+[11-Nov-2022 19:57:49 Asia/Ho_Chi_Minh] PHP Warning:  Use of undefined constant email - assumed 'email' (this will throw an Error in a future version of PHP) in /home/buydriv1/chippi.ga/Android/models/user.php on line 18
+[11-Nov-2022 19:58:06 Asia/Ho_Chi_Minh] PHP Warning:  Use of undefined constant email - assumed 'email' (this will throw an Error in a future version of PHP) in /home/buydriv1/chippi.ga/Android/models/user.php on line 18
+[11-Nov-2022 19:58:07 Asia/Ho_Chi_Minh] PHP Warning:  Use of undefined constant email - assumed 'email' (this will throw an Error in a future version of PHP) in /home/buydriv1/chippi.ga/Android/models/user.php on line 18
