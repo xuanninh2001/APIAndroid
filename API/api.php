@@ -13,7 +13,7 @@ if(isset($_POST['email'])){
     try {
         $username = $_POST['email'];
         $password = $_POST['password'];
-        $result = $userModel->checkUser($username, $password);
+        $result = $userModel->login($username, $password);
         if($result)
         {
             echo json_encode(array(

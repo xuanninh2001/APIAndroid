@@ -10,7 +10,7 @@ class User extends Database
         parent::__construct(require('../config/config.php'));
     }
 
-    public function checkUser($email, $password){
+    public function login($email, $password){
         $result = $this->select()
             ->from('users')
             ->where('email = :email and password = :password')
@@ -19,6 +19,47 @@ class User extends Database
                 'password' => $password
             ))
             ->fetch();
+        return $result;
+    }
+
+    public function register($fullName, $phone, $email, $password) 
+    {
+        $result = $this -> insert()
+            -> execute();
+    }
+}
+
+class District extends Database
+{
+    public function __construct() 
+    {
+        parent::__construct(require('../config/config.php'));
+    }
+
+    public function listAllDistricts() {
+        $result = $this -> select()
+            -> from('districts')
+            -> execute()
+            -> fetch();
+        return $result;
+    }
+} 
+
+class University extends Database
+{
+    public function __construct()
+    {
+        parent::__construct(require('../config/config.php'));
+    }
+
+    public function listUniversitiesByDistrict($districtId) {
+        $result = $this -> select()
+            -> from('universities')
+            -> where('district_id = :districtId')
+            -> execute(array(
+                'districtId' => $districtId
+            ))
+            -> fetch();
         return $result;
     }
 }
