@@ -31,7 +31,7 @@ class User extends Database
     public function listAllDistricts() {
         $result = $this->select()
             ->from('districts')
-            ->execute()
+            ->execute(null)
             ->fetch();
         return $result;
     }
