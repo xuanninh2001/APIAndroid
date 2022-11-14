@@ -37,8 +37,12 @@ if(isset($_POST['email'])){
 }
 
 if(isset($_POST['class'])) {
+    echo json_encode(array(
+        'status' => 'success',
+        'data' => $_POST['class']
+    ));
     try {
-        if ($_POST['class'] == 'districts') {
+        if ($_POST['class'] == 'district') {
             $result = $userModel -> listAllDistricts();
         }
 
