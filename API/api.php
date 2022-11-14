@@ -35,3 +35,29 @@ if(isset($_POST['email'])){
         ));
     }
 }
+
+$api = $_SERVER['REQUEST_METHOD'];
+if ($api == 'GET') {
+    try {
+        $result = $userModel->listAllDistricts();
+        if($result)
+        {
+            echo json_encode(array(
+                'status' => 'success',
+                'data' => $result
+            ));
+        }
+        else
+        {
+            echo json_encode(array(
+                'status' => 'failed',
+                'error' => 'Internal Server Error'
+            ));
+        }
+    } catch (Exception $e) {
+        echo json_encode(array(
+            'status' => 'failed',
+            'error' => $e->getMessage()
+        ));
+    }
+}
