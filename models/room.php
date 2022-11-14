@@ -35,14 +35,6 @@ class Room extends Database
             -> fetch();
         return $result;
     }
-}
-
-class RoomType extends Database
-{
-    public function __construct()
-    {
-        parent::__construct(require('../config/config.php'));
-    }
 
     public function listAllRoomTypes(){
         $result = $this -> select()
@@ -51,16 +43,8 @@ class RoomType extends Database
             -> fetch();
         return $result;
     }
-}
 
-class Review extends Database
-{
-    public function __construct()
-    {
-        parent::__construct(require('../config/config.php'));
-    }
-
-    public function listAllRoomReviews($roomId) {
+    public function listAllReviewsOfRoom($roomId) {
         $result = $this -> select()
             -> from('reviews')
             -> where('room_id = :roomId')
@@ -69,5 +53,32 @@ class Review extends Database
             ))
             -> fetch();
         return $result;
+    }
+
+    public function addRoom() {
+        $table = 'rooms';
+        $structure = 'thumbnail, address, price, description, latitude, longitude, status, area, max_renters, current_renters, has_parking, has_bathroom, has_security, has_elevator, has_wifi, landlord_user_id, room_type_id';
+        $valueBinding = ':thumbnail, :address, :price, :description, :latitude, :longitude, :status, :area, :max_renters, :current_renters, :has_parking, :has_bathroom, :has_security, :has_elevator, :has_wifi, :landlord_user_id, :room_type_id';
+
+        $result = $this -> insert($table, $structure, $valueBinding)
+            -> execute(array(
+                'thumbnail' => $thumbnail,
+                'address' => $address,
+                'price' => $price,
+                'description' => $description,
+                'latitude' => $latitude,
+                'longitude' => $longitude,
+                'status' => $status,
+                'area' => $area,
+                'max_renters' => $maxRenters,
+                'current_renters' => $currentRenters,
+                'has_parking' => $hasParking,
+                'has_bathroom' => $hasBathroom,
+                'has_security' => $hasSecurity,
+                'has_elevator' => $hasElevator,
+                'has_wifi' => $hasWifi,
+                'landlord_user_id' => $landlordUserId
+                'room_type_id' => $roomTypeId
+            ));
     }
 }

@@ -27,14 +27,6 @@ class User extends Database
         $result = $this -> insert()
             -> execute();
     }
-}
-
-class District extends Database
-{
-    public function __construct() 
-    {
-        parent::__construct(require('../config/config.php'));
-    }
 
     public function listAllDistricts() {
         $result = $this -> select()
@@ -42,14 +34,6 @@ class District extends Database
             -> execute()
             -> fetch();
         return $result;
-    }
-} 
-
-class University extends Database
-{
-    public function __construct()
-    {
-        parent::__construct(require('../config/config.php'));
     }
 
     public function listUniversitiesByDistrict($districtId) {
