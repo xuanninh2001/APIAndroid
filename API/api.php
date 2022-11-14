@@ -36,10 +36,12 @@ if(isset($_POST['email'])){
     }
 }
 
-$api = $_SERVER['REQUEST_METHOD'];
-if ($api == 'GET') {
+if(isset($_POST['class'])) {
     try {
-        $result = $userModel->listAllDistricts();
+        if ($_POST['class'] == 'districts') {
+            $result = $userModel -> listAllDistricts();
+        }
+
         if($result)
         {
             echo json_encode(array(
@@ -51,7 +53,7 @@ if ($api == 'GET') {
         {
             echo json_encode(array(
                 'status' => 'failed',
-                'error' => 'Internal Server Error'
+                'error' => 'Tài khoản hoặc mật khẩu không chính xác!'
             ));
         }
     } catch (Exception $e) {
