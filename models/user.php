@@ -24,26 +24,26 @@ class User extends Database
 
     public function register($fullName, $phone, $email, $password) 
     {
-        $result = $this -> insert()
-            -> execute();
+        $result = $this->insert()
+            ->execute();
     }
 
     public function listAllDistricts() {
-        $result = $this -> select()
-            -> from('districts')
-            -> execute()
-            -> fetch();
+        $result = $this->select()
+            ->from('districts')
+            ->execute()
+            ->fetch();
         return $result;
     }
 
     public function listUniversitiesByDistrict($districtId) {
-        $result = $this -> select()
-            -> from('universities')
-            -> where('district_id = :districtId')
-            -> execute(array(
+        $result = $this->select()
+            ->from('universities')
+            ->where('district_id = :districtId')
+            ->execute(array(
                 'districtId' => $districtId
             ))
-            -> fetch();
+            ->fetch();
         return $result;
     }
 }
