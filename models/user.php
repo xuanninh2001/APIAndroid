@@ -10,6 +10,7 @@ class User extends Database
         parent::__construct(require('../config/config.php'));
     }
 
+    // Đăng nhập
     public function login($email, $password){
         $result = $this->select()
             ->from('users')
@@ -22,12 +23,24 @@ class User extends Database
         return $result;
     }
 
-    public function register($fullName, $phone, $email, $password) 
+    // Đăng ký
+    public function register($fullName, $phone, $email, $password, $userType) 
     {
-        $result = $this->insert()
-            ->execute();
+        $table = 'users';
+        $structure = 'full_name, phone, email, password, user_type';
+        $valueBinding = ':full_name, :phone, :email, :pass_word, :user_type';
+
+        $result = $this->insert($table, $structure, $valueBinding)
+            ->execute(array(
+                'full_name' => $fullName,
+                'phone' => $phone,
+                'email' => $email,
+                'password' => $password,
+                'user_type' => $userType
+            ));
     }
 
+    // Liệt kê các quận
     public function listAllDistricts() {
         $result = $this->select()
             ->from('districts')
@@ -36,12 +49,13 @@ class User extends Database
         return $result;
     }
 
+    // Liệt kê các trường đại học theo quận
     public function listUniversitiesByDistrict($districtId) {
         $result = $this->select()
             ->from('universities')
-            ->where('district_id = :districtId')
+            ->where('district_id = :district_id')
             ->execute(array(
-                'districtId' => $districtId
+                'district_id' => $districtId
             ))
             ->fetch();
         return $result;

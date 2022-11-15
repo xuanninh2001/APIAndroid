@@ -42,10 +42,7 @@ if(isset($_POST['class'])) {
         'data' => $_POST['class']
     ));
     try {
-        if ($_POST['class'] == 'district') {
-            $result = $userModel -> listAllDistricts();
-        }
-
+        $result = $userModel -> listAllDistricts();
         if($result)
         {
             echo json_encode(array(
@@ -57,7 +54,7 @@ if(isset($_POST['class'])) {
         {
             echo json_encode(array(
                 'status' => 'failed',
-                'error' => 'Tài khoản hoặc mật khẩu không chính xác!'
+                'error' => 'Không tìm thấy!'
             ));
         }
     } catch (Exception $e) {

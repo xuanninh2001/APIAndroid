@@ -10,6 +10,7 @@ class Room extends Database
         parent::__construct(require('../config/config.php'));
     }
 
+    // Liệt kê phòng trọ theo khoảng cách
     public function listAllRoomsByDistance($latitude, $longitude, $distance) 
     {
         $result = $this -> select()
@@ -24,6 +25,7 @@ class Room extends Database
         return $result;
     }
 
+    // Xem chi tiết phòng trọ
     public function viewRoomDetail($roomId) 
     {
         $result = $this -> select()
@@ -36,7 +38,9 @@ class Room extends Database
         return $result;
     }
 
-    public function listAllRoomTypes(){
+    // Liệt kê các loại phòng trọ
+    public function listAllRoomTypes()
+    {
         $result = $this -> select()
             -> from('room_types')
             -> execute()
@@ -44,7 +48,9 @@ class Room extends Database
         return $result;
     }
 
-    public function listAllReviewsOfRoom($roomId) {
+    // Liệt kê nhận xét của phòng trọ
+    public function listAllReviewsOfRoom($roomId) 
+    {
         $result = $this -> select()
             -> from('reviews')
             -> where('room_id = :roomId')
@@ -55,7 +61,9 @@ class Room extends Database
         return $result;
     }
 
-    public function addRoom() {
+    // Thêm phòng trọ
+    public function addRoom($thumbnail, $address, $price, $description, $latitude, $longitude, $status, $area, $maxRenters, $currentRenters, $hasParking, $hasBathroom, $hasSecurity, $hasElevator, $hasWifi, $landlordUserId, $roomTypeId) 
+    {
         $table = 'rooms';
         $structure = 'thumbnail, address, price, description, latitude, longitude, status, area, max_renters, current_renters, has_parking, has_bathroom, has_security, has_elevator, has_wifi, landlord_user_id, room_type_id';
         $valueBinding = ':thumbnail, :address, :price, :description, :latitude, :longitude, :status, :area, :max_renters, :current_renters, :has_parking, :has_bathroom, :has_security, :has_elevator, :has_wifi, :landlord_user_id, :room_type_id';
@@ -79,6 +87,22 @@ class Room extends Database
                 'has_wifi' => $hasWifi,
                 'landlord_user_id' => $landlordUserId
                 'room_type_id' => $roomTypeId
+            ));
+    }
+
+    // Thêm lịch sử thuê trọ
+    public function addRenting($roomId, $studentUserId, $isRenting, $deposit) 
+    {
+        $table = 'rentings';
+        $structure = 'room_id, student_user_id, is_renting, deposit';
+        $valueBinding = ':room_id, :student_user_id, :is_renting, :deposit';
+
+        $result = $this -> insert($table, $structure, $valueBinding)
+            -> execute(array(
+                'room_id' => $roomId,
+                'student_user_id' => $studentUserId,
+                'is_renting' => $isRenting,
+                'deposit' => $deposit
             ));
     }
 }
